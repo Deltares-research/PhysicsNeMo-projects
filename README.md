@@ -35,7 +35,7 @@ import torch; torch.cuda.init()
 
 <img src="./Deltares_Deep_Learning.png" alt="Deltares logo" align="left" width="500" />
 
-<div style="clear: both;"></div>
+<br clear="all" />
 
 # Installing PhysicsNeMo on Zbook with Windows 11
 
