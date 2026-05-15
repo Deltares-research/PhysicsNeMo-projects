@@ -1,0 +1,41 @@
+seed: 1234
+
+training:
+  max_steps: 200000
+  log_every: 100
+
+model:
+  hidden_dim: 192
+  num_layers: 6
+
+optimizer:
+  lr: 0.001
+
+scheduler:
+  decay_rate: 0.9999
+
+physics:
+  inlet_temp: 293.15
+  diffusivity_fluid: 0.01
+  diffusivity_solid: 0.03
+  base_gradient: 5.0
+
+batch_size:
+  inlet: 256
+  outlet: 256
+  no_slip: 1024
+  interface: 1024
+  lr_interior_f: 2048
+  hr_interior_f: 2048
+  interior_s: 1024
+  base: 512
+
+loss:
+  inlet: 10.0
+  outlet: 1.0
+  no_slip: 1.0
+  interface: 5.0
+  lr_interior_f: 1.0
+  hr_interior_f: 1.0
+  interior_s: 1.0
+  base: 2.0

@@ -1,0 +1,61 @@
+# Output directories
+outputs/
+runs/
+logs/
+
+# TensorBoard
+events.out.tfevents*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# uv
+.venv/
+
+# Results and checkpoints
+*.pth
+*.pt
+*.ckpt
+*.mat
+*.h5
+*.hdf5
+
+# Data
+Training_data/
+*.npz
+*.npy
+
+# Misc
+.env
+.env.local
+*.log

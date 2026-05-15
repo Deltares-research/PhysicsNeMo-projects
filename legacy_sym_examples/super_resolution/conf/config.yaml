@@ -1,0 +1,25 @@
+seed: 1234
+
+training:
+  max_steps: 50000
+  log_every: 100
+
+model:
+  scaling_factor: 2
+  hidden_channels: 48
+
+optimizer:
+  lr: 0.001
+
+scheduler:
+  decay_rate: 0.99995
+
+data:
+  low_res_size: 16
+
+batch_size:
+  train: 8
+
+loss:
+  U: 1.0
+  dU: 0.2

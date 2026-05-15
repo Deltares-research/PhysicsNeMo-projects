@@ -1,0 +1,31 @@
+seed: 42
+
+model:
+  hidden_dim: 128
+  num_layers: 4
+
+physics:
+  front_disp: 0.01
+
+optimizer:
+  lr: 1e-3
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 2000000
+  log_every: 1000
+
+batch_size:
+  backBC: 1024
+  frontBC: 128
+  surfaceBC: 4096
+  interior_support: 2048
+  interior_bracket: 1024
+
+loss:
+  backBC: 1.0
+  frontBC: 1.0
+  surfaceBC: 1.0
+  interior: 1.0

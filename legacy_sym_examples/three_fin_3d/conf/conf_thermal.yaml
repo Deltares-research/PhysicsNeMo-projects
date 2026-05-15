@@ -1,0 +1,41 @@
+seed: 42
+
+model:
+  hidden_dim: 128
+  num_layers: 4
+
+physics:
+  inlet_temp: 0.0
+  source_grad: 1.0
+  diffusivity_fluid: 0.02
+  diffusivity_solid: 0.0625
+
+optimizer:
+  lr: 1e-3
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 1500000
+  log_every: 1000
+
+batch_size:
+  Inlet: 500
+  Outlet: 500
+  ChannelWalls: 500
+  SolidInterface: 500
+  HeatSource: 5000
+  InteriorLR: 1000
+  InteriorHR: 1000
+  SolidInterior: 1000
+  MonitorHeatSource: 1000
+
+loss:
+  Inlet: 1.0
+  Outlet: 1.0
+  ChannelWalls: 1.0
+  SolidInterface: 1.0
+  HeatSource: 1.0
+  InteriorLR: 1.0
+  SolidInterior: 1.0

@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 - 2024 NVIDIA CORPORATION & AFFILIATES.
+# SPDX-FileCopyrightText: All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+seed: 42
+
+model:
+  num_layers: 6
+  layer_size: 128
+  min_speed: 1.0e-3
+
+optimizer:
+  lr: 3.0e-4
+  beta1: 0.9
+  beta2: 0.999
+
+scheduler:
+  decay_rate: 0.99995
+
+domain:
+  length_km: 2.0
+  t_min: 0.15
+  t_max: 1.0
+
+data:
+  train_snapshot_ms: [150, 200, 250, 300]
+  val_snapshot_ms: [350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950]
+  speed_grid_points: 256
+
+loss_weights:
+  observation: 1.0
+  pde: 1.0e-4
+  speed: 1.0
+  boundary: 1.0e-2
+
+training:
+  max_steps: 40000
+  log_every: 500
+
+batch_size:
+  observation: 1024
+  interior: 4096
+  speed_supervision: 1024
+  boundary: 1024
+  validation: 2048
+
+

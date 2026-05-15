@@ -1,0 +1,45 @@
+seed: 42
+
+model:
+  hidden_dim: 128
+  num_layers: 4
+
+physics:
+  inlet_temp: 0.0
+  diffusivity_fluid: 0.02
+  diffusivity_solid: 0.10
+  source_grad: 1.5
+
+optimizer:
+  lr: 1e-3
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 400000
+  log_every: 1000
+
+batch_size:
+  inlet: 280
+  outlet: 280
+  channel_walls: 5000
+  symmetry_fluid: 2500
+  symmetry_solid: 500
+  fluid_solid_interface: 5000
+  heat_source: 1600
+  lr_flow_interior: 1250
+  hr_flow_interior: 1250
+  solid_interior: 1500
+
+loss:
+  inlet: 1.0
+  outlet: 1.0
+  channel_walls: 1.0
+  fluid_solid_interface: 1.0
+  heat_source: 1.0
+  lr_flow_interior: 1.0
+  hr_flow_interior: 1.0
+  solid_interior: 1.0
+  symmetry_fluid: 1.0
+  symmetry_solid: 1.0

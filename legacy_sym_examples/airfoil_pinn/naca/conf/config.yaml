@@ -1,0 +1,35 @@
+seed: 1234
+
+training:
+  max_steps: 200000
+  log_every: 100
+
+model:
+  hidden_dim: 256
+  num_layers: 6
+
+optimizer:
+  lr: 5e-4
+
+scheduler:
+  decay_rate: 0.99995
+
+physics:
+  nu: 0.0001
+  u_inlet: 1.0
+
+batch_size:
+  inlet: 256
+  outlet: 256
+  top_bot: 256
+  airfoil: 1024
+  interior_far_field: 1024
+  interior_near_field: 2048
+
+loss:
+  inlet: 10.0
+  outlet: 1.0
+  top_bot: 10.0
+  airfoil: 20.0
+  interior_far_field: 1.0
+  interior_near_field: 2.0

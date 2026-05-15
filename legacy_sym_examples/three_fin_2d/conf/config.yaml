@@ -1,0 +1,37 @@
+seed: 1234
+
+training:
+  max_steps: 300000
+  log_every: 100
+
+model:
+  hidden_dim: 256
+  num_layers: 6
+
+optimizer:
+  lr: 0.001
+
+scheduler:
+  decay_rate: 0.9999
+
+physics:
+  nu: 0.01
+  diffusivity: 0.02
+  inlet_velocity: 1.0
+  heat_sink_temp: 1.0
+
+batch_size:
+  inlet: 128
+  outlet: 128
+  hs_wall: 512
+  channel_wall: 1024
+  interior_flow: 2048
+  interior_heat: 2048
+
+loss:
+  inlet: 10.0
+  outlet: 1.0
+  hs_wall: 10.0
+  channel_wall: 5.0
+  interior_flow: 1.0
+  interior_heat: 1.0

@@ -1,0 +1,25 @@
+seed: 1234
+
+training:
+  max_steps: 100000
+  log_every: 100
+
+model:
+  hidden_dim: 128
+  num_layers: 5
+
+optimizer:
+  lr: 0.001
+
+scheduler:
+  decay_rate: 0.9999
+
+batch_size:
+  interior: 1024
+  boundary: 512
+  rbf_functions: 256
+
+loss:
+  interior: 1.0
+  boundary: 10.0
+  interface: 2.0

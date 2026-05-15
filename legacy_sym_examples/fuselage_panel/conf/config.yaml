@@ -1,0 +1,37 @@
+seed: 42
+
+model:
+  hidden_dim: 128
+  num_layers: 4
+
+physics:
+  right_disp: 0.005
+
+optimizer:
+  lr: 1e-3
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 2000000
+  log_every: 1000
+
+batch_size:
+  panel_left: 250
+  panel_right: 250
+  panel_bottom: 150
+  panel_corner: 5
+  panel_top: 150
+  panel_window: 3500
+  lr_interior: 7000
+  hr_interior: 4000
+
+loss:
+  panel_left: 1.0
+  panel_right: 1.0
+  panel_bottom: 1.0
+  panel_top: 1.0
+  panel_corner: 1.0
+  panel_window: 1.0
+  lr_interior: 1.0

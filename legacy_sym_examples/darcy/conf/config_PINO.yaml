@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 - 2024 NVIDIA CORPORATION & AFFILIATES.
+# SPDX-FileCopyrightText: All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+seed: 42
+
+model:
+  in_channels: 1
+  out_channels: 1
+  decoder_layers: 1
+  decoder_layer_size: 32
+  dimension: 2
+  latent_channels: 32
+  num_fno_layers: 4
+  num_fno_modes: 12
+  padding: 9
+
+data:
+  dataset_name: Darcy_241
+  dataset_dir: datasets
+  auto_download: false
+  n_train: 1000
+  n_test: 100
+
+optimizer:
+  lr: 3.0e-4
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 10000
+  log_every: 500
+
+loss:
+  weights:
+    sol: 1.0
+    darcy: 0.1
+
+batch_size:
+  train: 8
+  validation: 8

@@ -1,0 +1,37 @@
+seed: 42
+
+model:
+  hidden_dim: 128
+  num_layers: 4
+
+physics:
+  nu: 0.02
+  inlet_velocity: 1.0
+
+optimizer:
+  lr: 5e-4
+
+scheduler:
+  decay_rate: 0.999
+
+training:
+  max_steps: 400000
+  log_every: 1000
+
+batch_size:
+  inlet: 280
+  outlet: 280
+  no_slip: 10000
+  symmetry: 2500
+  lr_interior: 1250
+  hr_interior: 1250
+  integral_continuity: 5625
+  num_integral_continuity: 5
+
+loss:
+  inlet: 1.0
+  outlet: 1.0
+  no_slip: 1.0
+  lr_interior: 1.0
+  hr_interior: 1.0
+  symmetry: 1.0
