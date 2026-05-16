@@ -51,32 +51,23 @@ Below is a tried-n-tested install for the following (common) user setup:
 
 Open WSL command promt (windows key, then type wsl)
 
-Run:
-
 ```bash
 nvidia-smi
 ```
 
-If this works and shows your NVIDIA GPU, WSL2 can see the GPU correctly.
-
-Why this matters:
-On a ZBook, WSL2 uses the NVIDIA GPU rather than accidentally falling back to the integrated Intel graphics path that can cause confusion or GPU-related errors.
+- If this works and shows your NVIDIA GPU, WSL2 can see and will use the GPU correctly.
+- This also shows the installed nvidia driver (on windows) and the maximum CUDA version it supports. 
 
 ## Step 1: Install system prerequisites
 
-Run:
+Basic tools:
 
 ```bash
 sudo apt update
-sudo apt upgrade
 sudo apt install -y build-essential git curl python3 python3-venv python3-pip
 ```
 
-This installs the basic tools needed for cloning repositories and creating the Python environment.
-
-## Step 2: Install the latest `uv` in WSL2
-
-Run:
+Latest `uv`:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -86,12 +77,10 @@ uv --version
 
 If `uv --version` prints a version number, `uv` is installed correctly.
 
-## Step 3: Clone PhysicsNeMo inside the WSL filesystem
+## Step 2: Clone PhysicsNeMo inside the WSL filesystem
 
 Do **not** clone into a Windows-mounted path such as `/mnt/c/...`.
 That works on first sight, but it is extremely slow and can cause file-system related issues.
-
-Run:
 
 ```bash
 cd <your-projects-dir>
@@ -108,7 +97,7 @@ For this setup, install PhysicsNeMo with these extras:
 - `sym`: symbolic PDEs, PINNs, geometry, and constraints
 - `gnns`: graph and mesh support (adding this takes several minutes more to install)
 
-**Important:** The CUDA version (`cu12` or `cu13`) depends on your GPU's compute capability. If you have a newer GPU (Ada, Hopper, etc.), you may need `cu13` instead of `cu12`. Check your GPU's compute capability here: https://developer.nvidia.com/cuda-gpus
+**Important:** `cu12` depends on your maximum supported CUDA driver (see step 0). If this is >= 13 then you can use `cu13`, but `cu12` is likely more robust.
 
 Run:
 
@@ -117,7 +106,20 @@ uv sync --extra cu12 --extra nn-extras --extra sym --extra gnns
 ```
 ## Step 5: Verify PhysicsNeMo install
 
-First activate the environment and check python version.
+
+First check torch and CUDA, if this fails, change cuxx in previous step.
+
+```bash
+uv run --no-sync python - << EOF
+import torch
+print("CUDA available:", torch.cuda.is_available())
+print("CUDA runtime:", torch.version.cuda)
+x = torch.randn(10).cuda()
+print("Device:", x.device)
+EOF
+```
+
+Now activate the environment and check python version.
 
 ```bash
 source .venv/bin/activate
